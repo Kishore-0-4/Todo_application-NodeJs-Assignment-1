@@ -270,7 +270,7 @@ app.post("/todos/", async (request, response) => {
           const newDueDate = format(new Date(dueDate), "yyyy-MM-dd");
 
           const postQuery = `INSERT INTO todo (id, todo, priority, status, category, due_date)
-                    VALUES (${id}, '${priority}', '${status}', '${category}', '${newDueDate}');`;
+                  VALUES (${id}, '${todo}', '${priority}', '${status}', '${category}', '${newDueDate}');`;
 
           await db.run(postQuery);
           response.send("Todo Successfully Added");
@@ -335,7 +335,7 @@ app.put("/todos/:todoId/", async (request, response) => {
       if (priority === "HIGH" || priority === "MEDIUM" || priority === "LOW") {
         updateTodo = `
                 UPDATE todo SET todo = '${todo}',
-                priority = "${priority}',
+                priority = '${priority}',
                 status = '${status}',
                 category = '${category}',
                 due_date = '${dueDate}'
@@ -352,7 +352,7 @@ app.put("/todos/:todoId/", async (request, response) => {
     case requestBody.todo !== undefined:
       updateTodo = `
                 UPDATE todo SET todo = '${todo}',
-                priority = "${priority}',
+                priority = '${priority}',
                 status = '${status}',
                 category = '${category}',
                 due_date = '${dueDate}'
@@ -371,7 +371,7 @@ app.put("/todos/:todoId/", async (request, response) => {
       ) {
         updateTodo = `
                 UPDATE todo SET todo = '${todo}',
-                priority = "${priority}',
+                priority = '${priority}',
                 status = '${status}',
                 category = '${category}',
                 due_date = '${dueDate}'
@@ -391,7 +391,7 @@ app.put("/todos/:todoId/", async (request, response) => {
         const newDueDate = format(new Date(dueDate), "yyyy-MM-dd");
         updateTodo = `
                 UPDATE todo SET todo = '${todo}',
-                priority = "${priority}',
+                priority = '${priority}',
                 status = '${status}',
                 category = '${category}',
                 due_date = '${dueDate}'
